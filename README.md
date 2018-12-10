@@ -8,11 +8,10 @@ Your program should find the 113 valid solutions and return 'error' for every ot
 
 ## How to use
 ```
-Directory
-        |Fillit1820
-        |assets
-              |valid.txt
-              |piece.txt
+./Fillit1820
+./assets/
+       ./valid.txt
+       ./piece.txt
 ```
 
-```./Fillit1820 path_to_fillit```
+```Usage: ./Fillit1820 path_to_fillit```
