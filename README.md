@@ -1,4 +1,10 @@
 # Fillit1820
-Check if a fillit find the correct tetrominos among the 1820 possibles arrangements of 4 cubes.
+Check if a fillit can deal with the 1820 possibles combinations of 4 cubes among 16 places.
 
-This is a WIP.
+## Description
+Fillit1820 is a simple program that will run your fillit program 1820 times, testing each 4-combinations of cube among the 16 possibles places.
+
+Your program should find the 113 valid solutions and return 'error' for every other cases.
+
+## How to use
+```WIP```
