@@ -145,6 +145,11 @@ static char	*path_to_fillit(char **argv)
 	}
 	if(!(sys = ft_strjoin(tmp, " assets/piece.txt")))
 		ft_putendl("Error: failed malloc.");
+	if (strcmp(tmp, argv[0]) == 0)
+	{
+		ft_putendl("Could you maybe not do that ?");
+		return (0);
+	}
 	free(tmp);
 	return (sys);
 }
@@ -158,6 +163,7 @@ int		main(int argc, char **argv)
 	int		gnl;
 	int		i;
 	int		j;
+	int		k;
 	char	buffer[20] = {0};
 
 	if (argc != 2)
@@ -181,6 +187,7 @@ int		main(int argc, char **argv)
 		return (-1);
 	}
 	i = -1;
+	k = 0;
 	while (i++ < 1819)
 	{
 		create_piece(i, &tmp);
@@ -207,6 +214,7 @@ int		main(int argc, char **argv)
 				free(tmp);
 				return (-1);
 			}
+			k++;
 		}
 		j = 0;
 		while (j < 19)
@@ -214,7 +222,16 @@ int		main(int argc, char **argv)
 		free(tmp);
 	}
 	handle_pipe(2, 0);
-	printf("Congratulations, your fillit works with basic inputs !\n");
+	if (k == 0)
+		ft_putendl("Not a single piece is valid. Are you writing \"error\"?");
+	else if (k != 113)
+	{
+		ft_putstr("You found ");
+		ft_putnbr(k);
+		ft_putendl(" pieces out of 113. Check the last pieces of valid.txt.");
+	}
+	else
+		ft_putendl("Congratulations, your fillit works with basic inputs!");
 	close(gnl);
 	free(sys);
 	return (0);
