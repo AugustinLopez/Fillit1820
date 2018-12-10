@@ -102,7 +102,7 @@ static int	handle_pipe(int option, char (*txt)[20])
 	return (0);
 }
 
-static int	get_valid(char	(*buf)[50], int fd, char *piece, char (*buffer)[20])
+static int	get_valid(char	(*buf)[100], int fd, char *piece, char (*buffer)[20])
 {
 	char	*tmp;
 	int		i;
@@ -120,9 +120,10 @@ static int	get_valid(char	(*buf)[50], int fd, char *piece, char (*buffer)[20])
 	free(tmp);
 	if (ft_strcmp(*buf, piece))
 	{
-		ft_putendl("Error : the piece was :");
+		handle_pipe(2, 0);
+		ft_putendl("Error / the piece is:");
 		ft_putendl(piece);
-		ft_putendl("\n\nAnd here's what your fillit gives :");
+		ft_putendl("\nAnd your result is:");
 		ft_putendl(*buffer);
 		return (-1);
 	}
@@ -142,7 +143,7 @@ static char	*path_to_fillit(char **argv)
 		ft_putendl("Error: failed malloc.");
 		return (0);
 	}
-	if(!(sys = ft_strjoin(tmp, " piece.txt")))
+	if(!(sys = ft_strjoin(tmp, " assets/piece.txt")))
 		ft_putendl("Error: failed malloc.");
 	free(tmp);
 	return (sys);
@@ -152,11 +153,11 @@ int		main(int argc, char **argv)
 {
 	char	*sys;
 	char	*tmp;
-	char	tmp3[50];
+	char	tmp3[100] = {0};
 	int		fd;
 	int		gnl;
-	int		yrs;
 	int		i;
+	int		j;
 	char	buffer[20] = {0};
 
 	if (argc != 2)
@@ -164,40 +165,57 @@ int		main(int argc, char **argv)
 		ft_putendl("Usage : ./Fillit1820 path_to_fillit");
 		return (0);
 	}
-	if ((gnl = open("valid.txt", O_RDONLY)) == -1)
+	if ((gnl = open("assets/valid.txt", O_RDONLY)) == -1)
 	{
 		ft_putendl("Error : cannot open valid.txt");
 		return (-1);
 	}
 	if (!(sys = path_to_fillit(argv)))
+	{
+		free(sys);
 		return (-1);
+	}
 	if ((handle_pipe(0, 0)))
+	{
+		free(sys);
 		return (-1);
+	}
 	i = -1;
 	while (i++ < 1819)
 	{
 		create_piece(i, &tmp);
-		fd = open("piece.txt", O_RDWR | O_CREAT | O_TRUNC, 666);
+		fd = open("assets/piece.txt", O_RDWR | O_CREAT | O_TRUNC, 666);
 		if (fd == -1)
 		{
 			handle_pipe(2, 0);
 			ft_putstr("Error : cannot open piece.txt. Index: ");
 			ft_putnbr(i);
 			ft_putchar('\n');
+			free(sys);
+			free(tmp);
 			return (-1);
 		}
 		ft_putstr_fd(tmp, fd);
 		close(fd);
 		system(sys);
-		ft_strclr(buffer);
 		handle_pipe(1, &buffer);
 		if (buffer[0] != 'e')
+		{
 			if(get_valid(&tmp3, gnl, tmp, &buffer))
+			{
+				free(sys);
+				free(tmp);
 				return (-1);
+			}
+		}
+		j = 0;
+		while (j < 19)
+			buffer[j++] = 0;
 		free(tmp);
 	}
 	handle_pipe(2, 0);
 	printf("Congratulations, your fillit works with basic inputs !\n");
+	close(gnl);
 	free(sys);
 	return (0);
 }
