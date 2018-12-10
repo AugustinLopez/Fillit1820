@@ -7,4 +7,4 @@ Fillit1820 is a simple program that will run your fillit program 1820 times, tes
 Your program should find the 113 valid solutions and return 'error' for every other cases.
 
 ## How to use
-```WIP```
+```./Fillit1820 path_to_fillit```
