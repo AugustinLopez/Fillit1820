@@ -6,7 +6,7 @@
 /*   By: aulopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:40:39 by aulopez           #+#    #+#             */
-/*   Updated: 2018/11/21 16:06:46 by aulopez          ###   ########.fr       */
+/*   Updated: 2018/12/03 15:22:00 by aulopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,8 @@ int					ft_min(int x, int y);
 int					ft_max(int x, int y);
 void				ft_lstpush(t_list **alst, t_list *new);
 size_t				ft_lstsize(t_list *lst);
+void				ft_putbit_i32(unsigned int i, size_t size, char one,
+						char zero);
+void				ft_lstfree(void *content, size_t content_size);
 
 #endif
