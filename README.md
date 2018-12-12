@@ -48,4 +48,4 @@ Use make to create the executable Fillit1820.
 
 **Example :** ./Fillit1820 ../myvogsphere/fillit
 
-Please don't try to break it too hard. It is still a WIP, i know you will succeed.
+This is a WIP, so expect this thing to break down at any moment.
