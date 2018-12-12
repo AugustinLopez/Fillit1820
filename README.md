@@ -36,6 +36,7 @@ etc...
 Your program should find the 113 valid solutions and return 'error' for every other cases.
 
 ## How to use
+Use make to create the executable Fillit1820.
 ```
 ./Fillit1820
 ./assets/
@@ -44,3 +45,5 @@ Your program should find the 113 valid solutions and return 'error' for every ot
 ```
 
 ```Usage: ./Fillit1820 path_to_fillit```
+**Example :** ./Fillit1820 ../myvogsphere/fillit
+Please don't feed it bad stuff, it is still very fragile.
