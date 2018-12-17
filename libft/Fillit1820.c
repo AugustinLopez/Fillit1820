@@ -6,7 +6,7 @@
 /*   By: aulopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:08:05 by aulopez           #+#    #+#             */
-/*   Updated: 2018/12/10 16:28:51 by aulopez          ###   ########.fr       */
+/*   Updated: 2018/12/12 11:15:34 by aulopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static int		create_piece(int i, char **pie)
 	return (a + b + c + d);
 }
 
-static int	handle_pipe(int option, char (*txt)[20])
+static int	handle_pipe(int option, char (*txt)[21])
 {
 	static int	out_pipe[2];
 	static int	saved_stdout;
@@ -102,7 +102,7 @@ static int	handle_pipe(int option, char (*txt)[20])
 	return (0);
 }
 
-static int	get_valid(char	(*buf)[100], int fd, char *piece, char (*buffer)[20])
+static int	get_valid(char	(*buf)[100], int fd, char *piece, char (*buffer)[21])
 {
 	char	*tmp;
 	int		i;
@@ -161,10 +161,11 @@ int		main(int argc, char **argv)
 	char	tmp3[100] = {0};
 	int		fd;
 	int		gnl;
+	int		yrs;
 	int		i;
 	int		j;
 	int		k;
-	char	buffer[20] = {0};
+	char	buffer[21] = {0};
 
 	if (argc != 2)
 	{
@@ -174,6 +175,11 @@ int		main(int argc, char **argv)
 	if ((gnl = open("assets/valid.txt", O_RDONLY)) == -1)
 	{
 		ft_putendl("Error : cannot open valid.txt");
+		return (-1);
+	}
+	if ((yrs = open("assets/YourResult.txt", O_RDWR | O_CREAT | O_TRUNC, 666)) == -1)
+	{
+		ft_putendl("Error : cannot open YourResult.txt");
 		return (-1);
 	}
 	if (!(sys = path_to_fillit(argv)))
@@ -208,6 +214,7 @@ int		main(int argc, char **argv)
 		handle_pipe(1, &buffer);
 		if (buffer[0] != 'e')
 		{
+			ft_putendl_fd(buffer, yrs);
 			if(get_valid(&tmp3, gnl, tmp, &buffer))
 			{
 				free(sys);
