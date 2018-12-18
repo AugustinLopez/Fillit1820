@@ -1,10 +1,9 @@
 # Fillit1820
-Check if a fillit can deal with the 1820 possibles combinations of 4 cubes among 16 places.
+Check if a fillit can deal with the 1820 possibles combinations of 4 cubes among 16 places. Also contains some non-automatic tests in "/otherTest" that you might want to try.
 
 ## Description
 Fillit1820 is a simple program that will run your fillit program 1820 times, testing each 4-combinations of cube among 16 possibles places.
 
-Example:
 ```
 Examples:
 ####
