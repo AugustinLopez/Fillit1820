@@ -6,7 +6,7 @@
 /*   By: aulopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:08:05 by aulopez           #+#    #+#             */
-/*   Updated: 2018/12/12 11:15:34 by aulopez          ###   ########.fr       */
+/*   Updated: 2018/12/20 12:37:08 by aulopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ static int		create_piece(int i, char **pie)
 
 	if (i == 0)
 	{
-		*pie = ft_strdup("####\n....\n....\n....");
+		*pie = ft_strdup("####\n....\n....\n....\n");
 		return (a + b + c + d);
 	}
 	assign_uint16_value(&a, &b, &c, &d);
-	*pie = ft_strdup("....\n....\n....\n....");
+	*pie = ft_strdup("....\n....\n....\n....\n");
 	i = 0b10000000000000000;
 	j = 0;
 	while ((i = i >> 1))
