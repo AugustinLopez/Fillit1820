@@ -6,7 +6,7 @@
 /*   By: aulopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:08:05 by aulopez           #+#    #+#             */
-/*   Updated: 2018/12/20 12:37:08 by aulopez          ###   ########.fr       */
+/*   Updated: 2018/12/20 13:16:26 by aulopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ static int	get_valid(char	(*buf)[100], int fd, char *piece, char (*buffer)[21])
 
 	i = 0;
 	ft_strclr(*buf);
-	while (i++ < 3)
+	while (i++ < 4)
 	{
 		get_next_line(fd, &tmp);
 		ft_strcat(ft_strcat(*buf, tmp), "\n");
