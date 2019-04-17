@@ -1,50 +1,38 @@
 # Fillit1820
-Check if a fillit can deal with the 1820 possibles combinations of 4 cubes among 16 places. Also contains some non-automatic tests in "/otherTest" that you might want to try.
 
-## Description
-Fillit1820 is a simple program that will run your fillit program 1820 times, testing each 4-combinations of cube among 16 possibles places.
+The **fillit** project is the first mandatory group project from the [42](https://www.42.fr) curriculum. **Fillit1820** is a unit test: there are only 1820 possible arrangements of 4 block characters ('#') and 12 empty characters ('.') in a 4x4 square to form a tetrimino, and 113 valid solutions. We can test them all using a systematic approach.
 
-```
-Examples:
-####
-....
-....
-....
-
-but also:
-....
-###.
-#...
-....
-
-and also: 
-.###
-#...
-....
-....
-
-and even: 
-...#   
-#...
-...#
-#...
-
-etc...
-```
-
-Your program should find the 113 valid solutions and return 'error' for every other cases.
+## Useful links
+- The [Fillit PDF Subject](https://github.com/AugustinLopez/Fillit1820/blob/master/rcs/fillit.pdf)
 
 ## How to use
-Use make to create the executable Fillit1820.
+
 ```
-./Fillit1820
-./assets/
-       ./valid.txt
-       ./piece.txt
+git clone https://github.com/AugustinLopez/Fillit1820.git
+cd Fillit1820
+make
+./Fillit1820 /absolute/path/to/your/fillit/executable
 ```
+- Fillit1820 expect a valid path to your fillit executable. Other argument will result in an undefined behavior.
+- Fillit1820 uses several file from the /assets directory. The program will not work properly without them.
+- Fillit1820 has no tolerance for syntax errors: your fillit program should find 113 valid solutions and return '**error**' in every other cases. 
 
-```Usage: ./Fillit1820 path_to_fillit```
+## Example
+```
+./Fillit1820 ~/Not_working/fillit
+Error / the piece is:
+#..#
+#...
+#...
+....
 
-**Example :** ./Fillit1820 ../myvogsphere/fillit
 
-This is a WIP, so expect this thing to break down at any moment.
+And your result is:
+.A.
+AA.
+.A.
+
+
+./Fillit1820 ~/Working/fillit
+Congratulations, your fillit works with basic inputs!
+```
