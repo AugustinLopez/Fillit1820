@@ -14,8 +14,9 @@ make
 ./Fillit1820 /absolute/path/to/your/fillit/executable
 ```
 - Fillit1820 expect a valid path to your fillit executable. Other argument will result in an undefined behavior.
-- Fillit1820 uses several file from the /assets directory. The program will not work properly without them.
+- Fillit1820 uses several files from the /assets directory. The program will not work properly without them.
 - Fillit1820 has no tolerance for syntax errors: your fillit program should find 113 valid solutions and return '**error**' in every other cases. 
+- You may find additional ressources in the /otherTest directory. Note that those files are not used by Fillit1820: they must be tested manually.
 
 ## Example
 ```
