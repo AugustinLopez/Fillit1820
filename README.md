@@ -37,3 +37,6 @@ AA.
 ./Fillit1820 ~/Working/fillit
 Congratulations, your fillit works with basic inputs!
 ```
+
+## Trivia
+This program was created early in my curriculum. It is a bit wonky (a simple bash script would probably do the job better) but it works just fine.
