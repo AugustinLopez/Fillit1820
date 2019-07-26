@@ -11,7 +11,7 @@ The **fillit** project is the first mandatory group project from the [42](https:
 git clone https://github.com/AugustinLopez/Fillit1820.git
 cd Fillit1820
 make
-./Fillit1820 /absolute/path/to/your/fillit/executable
+./Fillit1820 ~/path/to/your/fillit/executable
 ```
 - Fillit1820 expect a valid path to your fillit executable. Other argument will result in an undefined behavior.
 - Fillit1820 uses several files from the /assets directory. The program will not work properly without them.
